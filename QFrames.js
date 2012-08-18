@@ -61,17 +61,27 @@
             log : function(w) {
                 console.log(w);
                 return this;
-            }
+            },
+            
         };
         var idr;
         for(var ip = 1; ip < is; ip++) {
             idr += is[ip];
             var is = id.split("");
         }
-        if((id) && id != "body" && (id.split("")[0] != "_")) {
-        fn.i = document.getElementById(id);
+        if((id) && id != "body" && (id.split("")[0] == "#")) {
+        fn.i = document.getElementById(idr);
         } else if(id == "body") {
-        fn.i = fn.i;
+        fn.i = document.body;
+        } else if((id) && id != "body" && (id.split("")[0] == ".")) {
+       	elements = document.getElementsByTagName('*');
+
+	for (var i = 0; i < elements.length; i++) {
+    	if (elements[i].className == t) {
+    	fn.i = elements[i];
+    	}
+	}
+        
         }
         return fn;
     };
