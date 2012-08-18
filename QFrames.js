@@ -70,10 +70,12 @@
             idr += is[ip];
 
         }
-        if((id) && id != "body" && (id.split("")[0] == "#")) {
+        if((id) && id != "body" && id != "head") {
         fn.i = document.getElementById(idr);
         } else if(id == "body") {
         fn.i = document.body;
+        } else if(id == "head") {
+        fn.i = document.head;
         }
         return fn;
     };
